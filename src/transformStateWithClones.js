@@ -32,6 +32,8 @@ function transformStateWithClones(state, actions) {
           delete currentState[key];
         }
         break;
+      default:
+        throw new TypeError(`Action type '${type}' is invalid`);
     }
 
     stateHistory.push(structuredClone(currentState));
